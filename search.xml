@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>[keyboard][02] - 自製鍵盤第一階段完結分享及檢討</title>
+      <link href="2020/08/23/log-keyobard-maker-3/"/>
+      <url>2020/08/23/log-keyobard-maker-3/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> log </tag>
+            
+            <tag> keyboard </tag>
+            
+            <tag> STM </tag>
+            
+            <tag> AVR </tag>
+            
+            <tag> RGB </tag>
+            
+            <tag> wireless </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[keyboard][01] - 自製鍵盤計劃</title>
+      <link href="2020/04/27/log-keyboard-maker-2/"/>
+      <url>2020/04/27/log-keyboard-maker-2/</url>
+      
+        <content type="html"><![CDATA[<p>經過一段時間research 個科技樹基本上生到7788<br>基本上只係差RGB就可以完成整個keyboard<br>咁呢篇blog主題就係記低番點樣整出黎 就廢事唔記得<br>小弟畢業做左廢青幾個月 終於就搵到工<br>所以應該唔會有咁多時間精力去做呢d自發project<br>其實對未來都仲係好迷茫 遲d開篇blog講下近況啦</p><hr><h2 id="設計初衷"><a href="#設計初衷" class="headerlink" title="設計初衷"></a>設計初衷</h2><p>`````````<br>其實本身我個keyboard就係張檯幾入既位置<br>如果我挨後既話 隻手要伸到勁遠先打到字<br>所以想有個wireless keyboard可以比我挨後果陣用<br>但係平時係以有線方式為主<br>同時亦可以有雙device共用一隻keyboard既構想<br>所以基本上只可以自己整</p><h2 id="HID-device"><a href="#HID-device" class="headerlink" title="HID device"></a>HID device</h2><p>一個HID 或者USB device其實係由一個<code>HID Report Descriptor</code> 去定義的<br>因為HID devier種類好多 而每一個device既input都唔一樣<br>好似Keyboard 都有分full size既104key keyboard 冇keypad既 87key keyboard<br>仲有股票買賣果d得數字keypad既keyboard 咁呢d全部都係keyboard 但已經有極多種類<br>然後mouse 耳機 keyboard+mouse pad 等等等等 好多既device</p><p>所以每一個deivce都有一個Report Descriptor 去define 呢一個deivce既input同output<br>從而令OS知道呢一個deivce的input係咩output係咩<br>而以下呢兩份就係USB官方document講 HID Report Descriptor點寫既<br><a href="https://usb.org/sites/default/files/hid1_11.pdf">https://usb.org/sites/default/files/hid1_11.pdf</a><br><a href="https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf">https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf</a></p><p>坦白講就咁睇呢份野就識寫係我呢d level係冇乜可能既<br>所以就會夾埋d其他教學一齊睇既<br>好在HID係d 10幾20年前既產物 相關資源非常多 大家可以自己搵下<br>咁我就覺得呢個兩網就講得幾清楚<br><a href="https://eleccelerator.com/tutorial-about-usb-hid-report-descriptors/">https://eleccelerator.com/tutorial-about-usb-hid-report-descriptors/</a><br><a href="http://joinmaker.blogspot.com/2019/11/usb-hid-3.html">http://joinmaker.blogspot.com/2019/11/usb-hid-3.html</a></p><p>咁就可以用Report Descriptor 創造一個自已獨有的HID device喇</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> log </tag>
+            
+            <tag> keyboard </tag>
+            
+            <tag> STM </tag>
+            
+            <tag> AVR </tag>
+            
+            <tag> RGB </tag>
+            
+            <tag> wireless </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[PADS][03] - Using the PADS logic to draw circuit schematic</title>
+      <link href="2020/03/02/tut-PADS-3/"/>
+      <url>2020/03/02/tut-PADS-3/</url>
+      
+        <content type="html"><![CDATA[<p>This is a tutorial of using PADS software to build your own PCB.</p><hr><p>At the last tutorial, we have create the new part.<br>We can follow the same step to draw all parts you need.</p><p>Here is the main parts of the moudule.</p><p><img src="https://i.imgur.com/PoGtH9Z.png"></p><p>Then we can start using the PADS logic to draw the circuit schematic.</p><h2 id="Change-size-of-the-sheet"><a href="#Change-size-of-the-sheet" class="headerlink" title="Change size of the sheet."></a>Change size of the sheet.</h2><p>When your circuit is a big circuit, you may need a bigger size of sheet.<br>We can go to <code>Tools</code> -&gt; <code>Options..</code> -&gt; <code>Design</code>, and change the Sheet size.</p><p><img src="https://i.imgur.com/R3xYyr8.png"></p><p>After changing the size, we need to choose the sheet border to fit the size.</p><p><img src="https://i.imgur.com/jJsxfwH.png"></p><p>You can choose <code>All Libraries</code> and Apply the <code>*</code> filter.<br>Then you can find the right border.</p><p><img src="https://i.imgur.com/JrFlD0G.png"></p><p>After apply the setting, we can see the sheet change to A3.</p><p><img src="https://i.imgur.com/QSBNiOO.png"></p><h2 id="Add-part-and-start-add-the-connection"><a href="#Add-part-and-start-add-the-connection" class="headerlink" title="Add part and start add the connection"></a>Add part and start add the connection</h2><p>We can add parts by clicking this icon.</p><p><img src="https://i.imgur.com/sgyrykG.png"></p><p>Add add a prefix you like, here I’m using U.</p><p><img src="https://i.imgur.com/YF1YTUn.png"></p><h2 id="Add-connection-to-all-parts"><a href="#Add-connection-to-all-parts" class="headerlink" title="Add connection to all parts"></a>Add connection to all parts</h2><p>We can press <code>F2</code> to add a connection or click this icon.</p><p><img src="https://i.imgur.com/nXuqyjj.png"></p><p> You can left click to another pin or connection line. Or right click to have some special function. I usually the off-page to mark up some comment connection. </p><p> <img src="https://i.imgur.com/8Yq6vtC.png"></p><p> You can name the net or pin, and it will automatically connect all the net with the same name.</p><p> <img src="https://i.imgur.com/8LjDzEn.png"></p><p> And also the <code>GND</code> will look like this.</p><p><img src="https://i.imgur.com/21BtUiu.png"></p><h2 id="Add-value-to-the-parts"><a href="#Add-value-to-the-parts" class="headerlink" title="Add value to the parts"></a>Add value to the parts</h2><p>Some parts like resistor and capacitor may need a specific value, we can double click the <code>???</code> to add value, to complete the circuit.</p><p><img src="https://i.imgur.com/vVpeeBZ.png"></p><h2 id="Rotate-the-symbol"><a href="#Rotate-the-symbol" class="headerlink" title="Rotate the symbol"></a>Rotate the symbol</h2><p>When you want to rotate the symbol or mirror it, just right click and select the effect you want.</p><p><img src="https://i.imgur.com/4znTcqc.png"></p><h2 id="finish-the-logic-circuit"><a href="#finish-the-logic-circuit" class="headerlink" title="finish the logic circuit"></a>finish the logic circuit</h2><p>Keep add the conncetion follow the circuit diagram and the datasheet you will finish the whole circuit part by part.</p><p><img src="https://i.imgur.com/69HBooX.png"></p><p><img src="https://i.imgur.com/rSCxQPA.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> tutorial </category>
+          
+          <category> PCB </category>
+          
+          <category> PADS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> log </tag>
+            
+            <tag> PCB </tag>
+            
+            <tag> environment </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[keyboard][00] - 記錄個自製鍵盤的計劃</title>
+      <link href="2020/02/28/log-keyboard-maker-1/"/>
+      <url>2020/02/28/log-keyboard-maker-1/</url>
+      
+        <content type="html"><![CDATA[<p>作為一個電子仔, keyboard mouse USB呢d咁平常見到既野都唔識整好似有d講唔過去.<br>不過電子呢科本身讀緊既野就係100年前既科技, 仲要100年前d野都已經讀到成班死死下.<br>21粒transisor組成741讀一個sem, 但係用緊既CPU GPU上十億粒.<br>keyboard mouse呢d近2,30年先有既野我唔識整都唔出奇呀.<br>已經冇野驚, 讀電子既人就係咁廢咁old school. 我就係讀電子,我就爛.<br>所以今次試下整個keyboard出黎玩下先.</p><hr><h2 id="階段計劃"><a href="#階段計劃" class="headerlink" title="階段計劃"></a>階段計劃</h2><p><b> 第一階段 一般有線鍵盤</b></p><p>就係你係d電腦鋪, 垃圾咁放一箱係到賣10蚊20蚊既垃圾一般有線鍵盤.<br>雖然話技術上係垃圾 但係我諗住用機械軸 所以都叫做係機械鍵盤既.</p><p><b> 第二階段 無衝有線鍵盤 with RGB</b></p><p>一個keyboard, 如果有個制同另一個唔可以同時撳既話. 佢係一個失敗既keyboard.<br>同時間又有幾多個key可以一齊撳 亦係一個問題. 所以無衝非常重要.<br>RGB唔洗講啦, keyboard身價直接上升幾百蚊.((成本都貴左</p><p><b> 第三階段 無線鍵盤 with RGB </b></p><p>RGB科技樹係上個階段解鎖左相信可以直接黎到無線keyboard既階段.<br>呢個階段難度極高. 相信一定會卡係呢到.</p><p><b> 最後階段 可有可無線鍵盤</b></p><p>插線就有線 唔插就無線 仲要RGB 市場上係有呢d產品 千幾2千銀lo.</p><hr><p>28/2/2020</p><h2 id="第一階段計劃"><a href="#第一階段計劃" class="headerlink" title="第一階段計劃"></a>第一階段計劃</h2><p><b>plan A - STM32F103 or F446 with keyboard array</b></p><p>好處:<br>    使用的硬件最為熟悉 對develop environment幾熟<br>    單粒解決所有問題<br>壞處:<br>    個USB HID lib我仲未睇得明<br>    software上最接近底層 debug時間預計最長</p><p><b>plan B - ATmega32U4 with keyboard array</b></p><p>好處:<br>    同樣單粒解決所有問題<br>    software上預計比STM high level 預計較易<br>壞處:<br>    AVR好耐冇用唔記得晒<br>    chip level programmer都冇 唔知點入手<br>    8-bit controller硬係好似差咁d</p><p><b>plan C - keyobard IC</b></p><p>CH9328 - serial to keyboard HID chip (直接無線都得lu)<br>usb鍵盤模塊 - 之前買過玩過</p><p>好處:<br>    簡單 方便 快捷 一定得<br>壞處:<br>    咁我玩黎做咩 不如直接買keyboard<br>    鍵盤模塊既話 PCB design唔到 因為會係咁既樣</p><p><img src="https://i.imgur.com/VzuzjIf.png" alt="Imgur"></p><p>結: 暫時試下planA先 搞唔掂先算</p><p>29/2/2020</p><p>簡單update下</p><p>一開始係到睇用咩chip黎做keyboard, 之後發現其寅係USB HID standard下用咩都係差唔多<br>都係砌好個USB report descriptor 同埋個report之後send出去 只要做到呢個function就得<br>睇下睇下覺得基本上跟住d網上TUT做呢 個第一階段應該就KO到 所以先用prototype完成第一階段既技術問題先<br>但當然rescarch階睇多d就更好啦 之後就發現問題幾多<br>CAPS LOCK state點收 完全唔知….<br>睇下睇下順便睇下無衝keyboard HA!</p><p>原來HID stardand 係 USB 上面, 而HID keyoboard一早寫死左只可以send 6個key<br>今次開心喇 基本上個科技樹點錯左 NKRO keyboard 同hid keyobard係兩回事<br>初步明白一個USB device既建立 問題係HID keyboard 同NKRO keyboard應該點樣係同一個keyboard共存.</p><p>16/3/2020</p><p>過咗半個月，科技樹解鎖到第二階段。我今次使用既策略係一步登天，因為成本實在太高了。<br>如果我每一個階段都做一次PCB做一次tseting呢, 唔計fail起碼做四次，但其實每次都只係有少少改動，銀包實在唔容許呢件事。所以只有大改既時侯先會出product.<br>另外，RGB呢個科技樹好似唔係想像中咁易，最大既問題係power.<br>諗一諗USB port 最大power都只係5V 500mA，即係2.5W 如果係87key keyboard 加埋3粒狀態燈，有90粒led。咁當然500mA唔會拎黎計數啦，拎個2/3 330mA黎計。<br>再經過隨便估算<br><img src="https://i.imgur.com/HcIsDRO.png" alt="隨便估算"><br>MCU max用30mA，300mA分比90粒led，加埋d power lost，每粒3mA左右應該都夠。但係唔好唔記得一粒RGB led = 3粒led, 即係每粒得1mA。個光度就同5V drive led 加 5k ohm一樣。相信只能夠加d scanning去減少power了。 更唔洗提無線d 電會點chur.</p><p>所以RGB做後少少啦 做左無線先。<br>現時科技樹:<br>一般有線鍵盤 ok<br>無衝有線鍵盤 ok<br>RGB suspend<br>無線鍵盤 processing</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> log </tag>
+            
+            <tag> keyboard </tag>
+            
+            <tag> STM </tag>
+            
+            <tag> AVR </tag>
+            
+            <tag> RGB </tag>
+            
+            <tag> wireless </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[PADS][02] - Draw New Parts landing pattern</title>
+      <link href="2020/02/25/tut-PADS-2/"/>
+      <url>2020/02/25/tut-PADS-2/</url>
+      
+        <content type="html"><![CDATA[<p>This is a tutorial of using PADS software to build your own PCB.</p><hr><p>At the last tutorial, we have finish the logic symbol of the new part.<br>Now we can draw the landing pattern, which is the package of your part.</p><h2 id="Use-PADS-layout-to-check-the-library"><a href="#Use-PADS-layout-to-check-the-library" class="headerlink" title="Use PADS layout to check the library"></a>Use PADS layout to check the library</h2><p>Open <code>PADS layout</code> Library Manager, you can see your part and shown as <code>NO DECAL</code>.</p><p><img src="https://i.imgur.com/x083SZu.png"></p><h2 id="Check-the-exist-Decals"><a href="#Check-the-exist-Decals" class="headerlink" title="Check the exist Decals"></a>Check the exist Decals</h2><p>You can check the existing library decals, to find that you need to draw it or not.<br>You can type the keyword on the filter text box like this to search.<br>Remember to change the selected library on top.</p><p><img src="https://i.imgur.com/JuSmc8B.png"></p><h2 id="Create-new-Decals"><a href="#Create-new-Decals" class="headerlink" title="Create new Decals"></a>Create new Decals</h2><p>When you confirm you need to draw a new decal.<br>Switch the <code>Filter</code> to <code>Decals</code>, and click <code>New...</code>.</p><p><img src="https://i.imgur.com/x083SZu.png"></p><h2 id="Change-to-grid-and-unit-to-fit-your-reference"><a href="#Change-to-grid-and-unit-to-fit-your-reference" class="headerlink" title="Change to grid and unit to fit your reference"></a>Change to grid and unit to fit your reference</h2><p>This component is using a SOP-8 package, the land pattern is here and the unit is mm.<br>So, I will change the software setting to fit my reference to draw it easier.<br>Here is the reference land pattern.</p><p><img src="https://i.imgur.com/Aeoouzw.png"></p><p>We switch the <code>Design units</code> to <code>Metric</code>.</p><p><img src="https://i.imgur.com/lSIQFAV.png"></p><p>And also the <code>Design Grid</code> and <code>Display Grid</code> as you like.</p><p><img src="https://i.imgur.com/7BigA0R.png"></p><h2 id="Start-to-draw-something"><a href="#Start-to-draw-something" class="headerlink" title="Start to draw something"></a>Start to draw something</h2><p>You can add some line using the <code>Drafting Toolbar</code> -&gt; <code>2D Line</code>.</p><p><img src="https://i.imgur.com/uZ3nFqk.png"></p><p>You can first draw a probably size and you can see you mouse posistion from the origin at the right bottom.</p><p><img src="https://i.imgur.com/wvbUP2y.png"></p><h2 id="change-the-2D-Line-drawing-object"><a href="#change-the-2D-Line-drawing-object" class="headerlink" title="change the 2D Line drawing object"></a>change the 2D Line drawing object</h2><p>When you using the <code>2D Line</code>, you can right click and change the drawing to a circle or just a path.</p><p><img src="https://i.imgur.com/HmYwEwf.png"></p><p>Here I get something like this.</p><p><img src="https://i.imgur.com/YJHS9dl.png"></p><h2 id="Add-Terminal"><a href="#Add-Terminal" class="headerlink" title="Add Terminal"></a>Add Terminal</h2><p>Use the <code>Terminal</code> to add pin.</p><p><img src="https://i.imgur.com/l3x1VD4.png"></p><p>The pin will add in orderly, or you can change the setting here.</p><p><img src="https://i.imgur.com/afa2ygS.png"></p><p>The part have 8 pin, so I just add 8 Terminal first.</p><p><img src="https://i.imgur.com/9Zdh9ez.png"></p><h2 id="Change-the-Pad-Stacks"><a href="#Change-the-Pad-Stacks" class="headerlink" title="Change the Pad Stacks"></a>Change the Pad Stacks</h2><p>We can select all of the Terminal and right-click, choose the <code>Pad Stacks...</code> to change the pin shape.</p><p><img src="https://i.imgur.com/aL0DnKb.png"></p><p>Here is the pin pad stack properties.</p><ol><li>The selected pin and the corresponding pin No..</li><li>The selected layer of this pin.</li><li>The pad parameter of selected layer of this pin.</li><li>The size of the drilling hole.</li><li>If you want the assign the change to all pin, just select it.</li></ol><p><img src="https://i.imgur.com/UDutsLZ.png"></p><p>Because our component is a SMD component,<br>We don’t need to drill hole, <code>Drill size</code> set to 0.<br>The <code>Inner Layer</code> and the <code>Opposite Side</code> pad also set to 0.</p><p><img src="https://i.imgur.com/llNee9V.png"></p><p>Also change the parameter of the pad on the <code>Mounted Side</code>.</p><p><img src="https://i.imgur.com/O3EELE9.png"></p><h2 id="place-all-thing-on-the-corrct-position"><a href="#place-all-thing-on-the-corrct-position" class="headerlink" title="place all thing on the corrct position"></a>place all thing on the corrct position</h2><p>We can select the pin and right-click, select <code>Properties..</code>.</p><p><img src="https://i.imgur.com/dhaZKq8.png"></p><p>It will show the X Y position of this pin. </p><p><img src="https://i.imgur.com/fMZEoPW.png"></p><p>You can calculate the relative position of the pin and place it in the correct place.<br>Also, you can adjust your 2D line draft to get a better look.</p><p><img src="https://i.imgur.com/aZXEY7c.png"></p><p>Here is what I get.</p><p><img src="https://i.imgur.com/kQ21SeG.png"></p><h2 id="place-the-Name-and-Type"><a href="#place-the-Name-and-Type" class="headerlink" title="place the Name and Type"></a>place the Name and Type</h2><p>After place all the pin, I will change the size of the Name and Type and also place it on a better psition.</p><p>Also right-click -&gt; <code>Properties..</code></p><p><img src="https://i.imgur.com/rsLqTil.png"></p><h2 id="Finish-and-Saving"><a href="#Finish-and-Saving" class="headerlink" title="Finish and Saving"></a>Finish and Saving</h2><p>final look.</p><p><img src="https://i.imgur.com/g53uPxl.png"></p><p>Saving.</p><p><img src="https://i.imgur.com/ebeiq01.png"></p><p>Naming</p><p><img src="https://i.imgur.com/ADnS3SD.png"></p><p>Click <code>NO!</code> when it ask you to create a new Part Type.</p><p><img src="https://i.imgur.com/gqH5MAQ.png"></p><p>Then we can exit the editor.</p><p><img src="https://i.imgur.com/DsMftQv.png"></p><h2 id="Combine-the-Decal-to-the-Part"><a href="#Combine-the-Decal-to-the-Part" class="headerlink" title="Combine the Decal to the Part"></a>Combine the Decal to the Part</h2><p>Open the Library Manager, we can see the part still show <code>NO DECAL</code>, we click <code>edit..</code>.</p><p><img src="https://i.imgur.com/I0nWByc.png"></p><p>And go to the <code>PCB Decals</code>.</p><p><img src="https://i.imgur.com/UHUrCmY.png"></p><p>Find the Decal we have created, you can  see the preview on top.</p><p><img src="https://i.imgur.com/jjMMro4.png"></p><p>Click <code>Assign</code>, then <code>OK</code>.</p><p><img src="https://i.imgur.com/ZNxE88J.png"></p><p>Now we can see the part show our decal. We success to assign the decal to this part.</p><p><img src="https://i.imgur.com/eH4xugP.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> tutorial </category>
+          
+          <category> PCB </category>
+          
+          <category> PADS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> log </tag>
+            
+            <tag> PCB </tag>
+            
+            <tag> environment </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[PADS][01] - Draw New Parts logic symbol</title>
+      <link href="2020/02/23/tut-PADS-1/"/>
+      <url>2020/02/23/tut-PADS-1/</url>
+      
+        <content type="html"><![CDATA[<p>This is a tutorial of using PADS software to build your own PCB.</p><hr><h2 id="Create-a-new-part"><a href="#Create-a-new-part" class="headerlink" title="Create a new part"></a>Create a new part</h2><p><img src="https://i.imgur.com/LZ0k8DC.png"></p><ol start="0"><li>We will use PADS Logic to create a new part.</li><li>select your part will create at which library.<br>…It is suggested to create your own library. After create library, remember click the <code>Manage Lib list</code> and add your library to the list. </li><li>select <code>parts</code>.</li><li>Click <code>New...</code> to create new parts.</li></ol><p><img src="https://i.imgur.com/IoLLgs2.png"></p><p>You will see the left top become <code>NEW_PART</code>. Then click <code>Edit Graphics</code> to start draw the logic symbol.</p><p><img src="https://i.imgur.com/cvgxZnr.png"></p><p>Just click yes.</p><h3 id="changing-the-Gird"><a href="#changing-the-Gird" class="headerlink" title="changing the Gird"></a>changing the Gird</h3><p><code>Tools</code> -&gt; <code>Options...</code> </p><p><img src="https://i.imgur.com/FWRf5pZ.png"></p><p>You need to change the <code>Design</code> grid and <code>display grid</code> the unit is mil (100mil = 0.1 inch).<br>Design grid is the step size unit, it mean minimum move 10 mil 1 time.<br>display grid is the length between the background dot.</p><p><img src="https://i.imgur.com/SCxMXES.png"></p><h3 id="create-logic-symbol"><a href="#create-logic-symbol" class="headerlink" title="create logic symbol"></a>create logic symbol</h3><p>show the tools bar by clicking the <code>Decal editing toolbar</code>.</p><p><img src="https://i.imgur.com/b433QLD.png"></p><h3 id="create-the-symbol"><a href="#create-the-symbol" class="headerlink" title="create the symbol"></a>create the symbol</h3><p>use the <code>CAE decal wizard</code> to create the symbol.</p><p><img src="https://i.imgur.com/QsUfs73.png"></p><p>changing the number to get the shape you want. The preview is shown at left.</p><p><img src="https://i.imgur.com/NJtELLB.png"></p><h3 id="Pin-number"><a href="#Pin-number" class="headerlink" title="Pin number"></a>Pin number</h3><p>After you confirm it, you can start set the pin number. You can just click the pin in orderly.</p><p><img src="https://i.imgur.com/OrSP5B5.png"></p><p>You can use <code>change Pin number</code> to correct the pin index.</p><p><img src="https://i.imgur.com/o8OjkTe.png"></p><h3 id="Pin-name"><a href="#Pin-name" class="headerlink" title="Pin name"></a>Pin name</h3><p>You can use <code>change Pin name</code> to name all the pin.</p><p><img src="https://i.imgur.com/q0WDdW2.png"></p><h3 id="Reshape-the-symbol"><a href="#Reshape-the-symbol" class="headerlink" title="Reshape the symbol"></a>Reshape the symbol</h3><p>using the <code>modify 2D Line</code> the change the symbol.</p><p><img src="https://i.imgur.com/tPO2M9D.png"></p><p>After name all the pin and correct the shape, I get this logic symbol at final.</p><p><img src="https://i.imgur.com/UnaoJW0.png"></p><h3 id="saving-logic-symbol"><a href="#saving-logic-symbol" class="headerlink" title="saving logic symbol"></a>saving logic symbol</h3><p><code>File</code> -&gt; <code>Return to Part</code></p><p><img src="https://i.imgur.com/yGN1R9H.png"></p><p>just yes.</p><p><img src="https://i.imgur.com/9prtIJq.png"></p><p>Save As..</p><p><img src="https://i.imgur.com/CUFVThR.png"></p><p>The <code>Name of Part</code> is the name of this new part. The <code>CAE Decal 1</code> is the name of the logic symbol.<br>One part can have more than one logic symbol, so we can see we are naming the Gate A.<br>Normally I will just give them the same name.</p><p><img src="https://i.imgur.com/nNw9xrP.png"></p><p>Here it will pop out a warning message. <code>Part has no PCB Decal assigned.</code><br>we can just ignore it, the next tutorial will draw the PCB decal.</p><p><img src="https://i.imgur.com/uoA7Ohh.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> tutorial </category>
+          
+          <category> PCB </category>
+          
+          <category> PADS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> log </tag>
+            
+            <tag> PCB </tag>
+            
+            <tag> environment </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[PADS][00] - Introduction and Preparations</title>
+      <link href="2020/02/23/tut-PADS/"/>
+      <url>2020/02/23/tut-PADS/</url>
+      
+        <content type="html"><![CDATA[<p>This is a tutorial of using PADS software to build your own PCB.</p><hr><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>In this tutorial, PADS Logic, PADS Layout, and PADS Router will be used.<br>PADS Logic - use for build the circuit schematic.<br>PADS Layout - use for edit the component placement and how the in-kind board looks like.<br>PADS Router - use for auto routing.</p><hr><h1 id="Library-structure"><a href="#Library-structure" class="headerlink" title="Library structure"></a>Library structure</h1><p>The most important thing before starting to build the circuit board is to understand the component Library structure of PADS software. </p><p>The position of the <code>Library</code>.<br><img src="https://i.imgur.com/B9gy1fI.png"></p><p>After clicking the <code>Library</code> option, the Library Manager will show like this.<br><img src="https://i.imgur.com/czt6OyO.png"></p><p>At the top, you can select which Library you are using. Also, you can Manage the library list and create a new library. I will suggest you create a new library to save all your own parts. </p><p>At PADS library, a component is called as a part. A parts contain a logic(symbol) and one or few decals(package). The logic and decals can be share to build different parts. For example, the surface mount component of the resistor and capacitor share a same package 0805. So the 0805 decals can be assigned to the ressistor and capacitor.</p><p>Btw, if you use the PADS logic open the Library Manager and check the Parts, the preview is the logic symbol. If you use PADS layout to check, it will be the default decals of that part. </p><h1 id="Preparations"><a href="#Preparations" class="headerlink" title="Preparations"></a>Preparations</h1><p>The first thing that must be to do some research to see how to build the circuit, is it already exist some similar board as a reference. And make sure the material and circuit fit your board. </p><p>In this tutorial, I will build a lithium battery charging with a protection circuit as an example. In fact, the market already exists some modules like this. I will copy this module to finish this tutorial.</p><p><img src="https://i.imgur.com/pdzdKfg.png"></p><p>This module have 3 main component, which is <code>TP4056</code>, <code>DW01A</code>, and <code>8205A</code>.<br>We need to confirm we can get these 3 components or similar parts. If we can’t get it, change the plan now! Don’t find it after you finish your circuit board. It will waste your time.<br>I sure I can build this circuit using these components, then check the datasheet just get the idea of how the circuit works.</p><p>Now we can start to draw the parts.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> tutorial </category>
+          
+          <category> PCB </category>
+          
+          <category> PADS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> log </tag>
+            
+            <tag> PCB </tag>
+            
+            <tag> environment </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Hexo][04] Summary of hexo blog operation</title>
+      <link href="2020/02/16/Log-hexo-summary/"/>
+      <url>2020/02/16/Log-hexo-summary/</url>
+      
+        <content type="html"><![CDATA[<h1 id="hexo-daily-command"><a href="#hexo-daily-command" class="headerlink" title="hexo daily command"></a>hexo daily command</h1><p><b>create a new page or article.</b></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure><p>most useful command <code>hexo new post [title]</code>.</p><table><thead><tr><th><b>Layout</b></th><th><b> Path </b></th><th><b>content</b></th></tr></thead><tbody><tr><td><code>post</code></td><td><code>source/_posts</code></td><td>blog article</td></tr><tr><td><code>page</code></td><td><code>source</code></td><td>new page at top</td></tr><tr><td><code>draft</code></td><td><code>source/_drafts</code></td><td>article draft</td></tr></tbody></table><p>The default filename of the <code>.md</code> markdown file will be the title.<br>You can change the default filename by editing the <code>new_post_name</code> setting under the <code>_config.yml</code> of the blog.<br>You can add the following element to prefix your filename. For example, <code>:year-:month-:day-:title.md</code>.</p><p><b> delete all the cache and static file. </b></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure><p>use after install a new plugins or having new setting.</p><p><b> generate static file. </b></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure><p><b> deploy the static file. </b></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure><p><b> deploy instantly after generate statoc file.</b></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure><p><b> localhost to preview the blog. </b></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure><p><b> backup the blog to git. </b></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;remark&quot;</span><br><span class="line">git push origin [branch name]</span><br><span class="line">    -- git push origin hexo</span><br></pre></td></tr></table></figure><h1 id="used-plugins"><a href="#used-plugins" class="headerlink" title="used plugins"></a>used plugins</h1><h2 id="hexo-generator-search"><a href="#hexo-generator-search" class="headerlink" title=" hexo-generator-search "></a><b> hexo-generator-search </b></h2><p>A search function for the blog. You can check the original on <a href="https://github.com/wzpan/hexo-generator-search">GitHub</a>.</p><p>install like this. Go to the root of your blog.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-search --save</span><br></pre></td></tr></table></figure><p>enable like this. Edit you blog <code>_config.yml</code>.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">all</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure><h2 id="hexo-blog-encrypt"><a href="#hexo-blog-encrypt" class="headerlink" title=" hexo-blog-encrypt "></a><b> hexo-blog-encrypt </b></h2><p>A plugins to encrypt your post. Only password holder can read you article.<br>check the original on <a href="https://github.com/MikeCoder/hexo-blog-encrypt">GitHub</a>.</p><p>install like this. Go to the root of your blog.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-blog-encrypt</span><br></pre></td></tr></table></figure><p>enable like this. Edit you blog article.</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hello</span> <span class="string">World</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2016-03-30 21:18:02</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">yourpassword123</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> log </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[漢化][記錄] - 分享一人漢化工作程序</title>
+      <link href="2020/02/07/Log-trans-process/"/>
+      <url>2020/02/07/Log-trans-process/</url>
+      
+        <content type="html"><![CDATA[<p>簡單記錄小弟進行個人漢化時的一些工作程序.</p><p>學日文的初心就是想在不依賴漢化組的情況下看懂動畫漫畫<br>學了5年多 又荒廢了4年多 但今時今日拿起一本輕小說 還是看得慬劇情的<br>不敢說日文已大成 但還是達到了一開始的目標</p><p>現在看小說看漫畫到一半 漢化組來不及 我亦會去看原文生肉<br>正常看完自私食完就算 做起漢化只是時間太多<br>但做一做 不得不再佩服漢化組們用愛發電<br>因為真是太辛苦了 做到一半就有一種 自己食完就算的念頭</p><hr><h1 id="翻譯"><a href="#翻譯" class="headerlink" title="翻譯"></a>翻譯</h1><p>最重要的當然是翻譯 但還有一個前題–生肉<br>生肉的供應當然要自己想辦法啦 連生肉都沒有 談何漢化呢?</p><p>下面就是我翻譯時的畫面 家中的兩個24寸屛幕的cap screen<br>不得不說雙畫面的工作效率真是提升超多 想當年單mon翻game時 tab tab tab tab到懷疑人生</p><p>右邊是主用的 左邊是副用的<br>主mon的最右邊是一個word檔 將作品裡常見的字詞 例如主要角色的名稱 家名 國名 等等儲存下來<br>當每一次名字出現的時候 可以快速在右邊複製 提升速度之如 維持翻譯的統一性<br>主mon左邊就是生肉的漫畫 中間的txt就是正在翻的內容</p><p>副mon就是在一些不知如何表達的情況 或者根本不懂該字的時候上網查一下用的</p><p><img src="https://i.imgur.com/6KZL14S.png"></p><h1 id="除字"><a href="#除字" class="headerlink" title="除字"></a>除字</h1><p>把內容翻譯完後 會將生肉漫畫上的字清除 方便之後一次過上字<br>將生肉漫畫全部拉進photoshop 然後 筆刷工具把字全都清了</p><p>好的漢化組在處理一些跟背景交錯的字是 可以處理得很好 基本不見違和感<br>但我只是玩玩就隨便了</p><p><img src="https://i.imgur.com/Lucjjcs.png"></p><h1 id="上字"><a href="#上字" class="headerlink" title="上字"></a>上字</h1><p>在除完字之後 看見一片白的對話框 自己都忘記了內容應該是什麼了<br>所以在副mon把生肉開出來 主mon做上字<br>還要把翻譯文本的txt針到最上層顯示</p><p>生熟肉的對照組就成功製造出來了</p><p><img src="https://i.imgur.com/hU72Zfl.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> translate </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> comic </tag>
+            
+            <tag> translate </tag>
+            
+            <tag> log </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Keil][02] - using CubeMX to generate the hardware setting code</title>
+      <link href="2019/10/27/Log-keil-2/"/>
+      <url>2019/10/27/Log-keil-2/</url>
+      
+        <content type="html"><![CDATA[<p>Using the CubeMX to generate hardware setting code and put it on keil IDE with HAL library. </p><hr><h1 id="Get-the-software"><a href="#Get-the-software" class="headerlink" title="Get the software."></a>Get the software.</h1><p><a href="https://www.st.com/en/development-tools/stm32cubemx.html">https://www.st.com/en/development-tools/stm32cubemx.html</a></p><h1 id="Select-the-device-that-you-are-using"><a href="#Select-the-device-that-you-are-using" class="headerlink" title="Select the device that you are using"></a>Select the device that you are using</h1><p>Here I’m using the <code>NUCLEO-F103RB</code> deveopment board, so I can use the board selector to find my device.</p><p><img src="https://i.imgur.com/OOZrXlu.png"></p><p>You can use the search function to search your board or make some conditions to find the board that suitable for you.</p><p>After you select the development board or chips that you want, it will show the features of the board. You can click the <code>Doc &amp; Resources</code> and it will provide the data sheet and the references manual. You can download it, or you can find it on internet if you need.</p><p>After all, click the <code>Start Project</code> to start.<br><img src="https://i.imgur.com/NQVUkNq.png"></p><h1 id="Do-you-settings"><a href="#Do-you-settings" class="headerlink" title="Do you settings."></a>Do you settings.</h1><p>At this stage, you can just define the pins, set up the timer details, what prescaler using, what clock source are using etc. And you can click the Pin on the MCU, and it will show you what this pin can do. In the picture, we can see PA11 have many functions, but remember do not let two function using the same pin.</p><p><img src="https://i.imgur.com/90Fiusd.png"></p><p>After setting up all the stuff, you can go to <code>project Manager</code> to create your project name, location. The most important part is choose the right <code>toolchain/IDE</code>, here the keil is <code>MDK-ARM</code> and the version you need to check you keil.</p><p>Then you can click the <code>GENERATE CODE</code> to create the keil project that already have all hardware setup code. </p><p><img src="https://i.imgur.com/0hNyTTG.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> tutorial </category>
+          
+          <category> keil </category>
+          
+          <category> stm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> log </tag>
+            
+            <tag> environment </tag>
+            
+            <tag> stm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Keil][01] - Setting up the environment to use keil IDE</title>
+      <link href="2019/10/26/Log-keil-1/"/>
+      <url>2019/10/26/Log-keil-1/</url>
+      
+        <content type="html"><![CDATA[<pre><code>Setting up the keil IDE to program STM32 development board.</code></pre><hr><h1 id="Get-the-software"><a href="#Get-the-software" class="headerlink" title="Get the software."></a>Get the software.</h1><p><a href="https://www.keil.com/download/product/">https://www.keil.com/download/product/</a></p><p>download the <code>MDK-arm</code>. which is the development environment for Cortex and Arm devices.</p><p>install the environment. </p><h1 id="PackInstaller"><a href="#PackInstaller" class="headerlink" title="PackInstaller"></a>PackInstaller</h1><p>After installing the software, you will open up a packinstaller automatically.<br>if not you can open keil uVision and open the packInstaller by click the icon.</p><p><img src="https://i.imgur.com/hqeBKO0.png" alt="Imgur"></p><p>In the pack installer, you can find the chip or development board on the right easily by using the search function.</p><p>Here I’m using the NUCLEO-F103RB development board, and the board is using the STM32F103RB chip.</p><p><img src="https://i.imgur.com/b3KUTbk.png" alt="Imgur"></p><p>On the left, you have so many packs are able to install. If you are new on this, just make sure you have these.</p><p><img src="https://i.imgur.com/dt4Co1u.png" alt="Imgur"></p><h1 id="Copy-an-example-code"><a href="#Copy-an-example-code" class="headerlink" title="Copy an example code."></a>Copy an example code.</h1><p>If you are using the NUCLEO-F103RB development board like me, you can copy an example code.</p><p><img src="https://i.imgur.com/Q2ls7GJ.png"></p><p>After copy the example, the keil will open automatically, and you can open the <code>Blinky.c</code> find the <code>main</code> and it will look like this.</p><p><img src="https://i.imgur.com/MWLzIxk.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> tutorial </category>
+          
+          <category> keil </category>
+          
+          <category> stm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> log </tag>
+            
+            <tag> environment </tag>
+            
+            <tag> stm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[硬碟]驚嚇的收藏遺失事件</title>
+      <link href="2019/10/12/Blog-recovery-1/"/>
+      <url>2019/10/12/Blog-recovery-1/</url>
+      
+        <content type="html"><![CDATA[<p>講一講大概係3年前發生既事, 係我第一次將programming學以致用的時刻, 對我黎講係一個幾深刻的事, 故事發生係由於電腦換底板的時候.</p><p>當時電腦的底板係 GIGABYPE 的 B75M, storage應該係1隻SSD, 1隻1TB hard disk, 再加一隻3 TB hard disk既.<br>好記得windows係做唔到直接read一隻3TB既MBR hard disk既, 係需要轉隻hard disk做GPT先read到.<br>但係, 當我入手呢隻3TB hard disk 既時侯, GIGABYPE 既底板係有提供一個叫<code>unlock 3TB</code>既software, 而我當時冇研究, 直接用呢個software係MBR的format下直接用呢隻hard disk 而用到晒3TB.<br>問題就發生係換底板果陣喇, 我由GIGABYPE 轉投左去另一個品牌的底板, 冇左<code>unlock 3TB</code>我就頭都大埋, 一係放棄1TB, 一係轉做GPT. 咁我決定左轉做GPT啦, 但係果1TB的data…就…format左喇.</p><p>咁我就即刻搵解決方法啦, google <code>hard disk recovery</code>,搵下點樣救番d data. 然後用一個叫<code>Recuva</code>的software 做data recovery, 果程都還算順利 好多既收藏都成功救番, 救唔番的通常都係ass字幕為多.</p><p>救出黎既所有file都係變晒做number file. 但係scan果陣佢明明scan到原本個名. 真係比佢吹脹.</p><p><img src="https://i.imgur.com/HuHiIeX.jpg" alt="當時的cap圖"></p><p>之後就有海量的無名file, 同一條file原本名稱的list出黎.</p><hr><p>成千上萬的file, 無理由逐一改名架…100個file都做到傻喇. 咁我就決定寫個program去解決 第一次用program去解決實質需要.</p><p>兩條list的共通點就只有file size. 我寫左個java program read晒兩條list. 用file size做比對之後output番出黎. </p><p><img src="https://i.imgur.com/M77bwwD.jpg" alt="當時的cap圖"></p><p>最後都係用java 一次過跟住條list改名, 成功救番晒d data.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> log </tag>
+            
+            <tag> hard disk </tag>
+            
+            <tag> recovery </tag>
+            
+            <tag> collection </tag>
+            
+            <tag> data lost </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Hexo][03] - 用git實行雙電腦update blog</title>
+      <link href="2019/10/12/Log-hexo-3/"/>
+      <url>2019/10/12/Log-hexo-3/</url>
+      
+        <content type="html"><![CDATA[<p>簡單記錄小弟係學校lab同屋企兩部電腦點樣同步更新.</p><hr><p>例如, 你係學校/公司的A電腦開始起website, 完成咗上兩個tut的步驟, 而家係屋企B電腦想做更新, 第一步係起番相應既develop environment.</p><h1 id="inital-on-the-second-computer"><a href="#inital-on-the-second-computer" class="headerlink" title="inital on the second computer."></a>inital on the second computer.</h1><ul><li><a href="https://git-scm.com/" title="Git">Git</a> </li><li><a href="https://nodejs.org/en/" title="Node.js">Node.js</a></li><li><a href="https://code.visualstudio.com/" title="Visual Studio Code">Visual-Studio-Code</a></li></ul><p>On any directory.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure><p>Clone your website file.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;[youraccount&#x2F;yourrepository]</span><br></pre></td></tr></table></figure><p>On your repository directory install the Node.js package manager.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure><p>Install the deployer.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure><p>confirm your environnment.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">---INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure><p>edit something and deploy it to github. Remember to generate your SSH key to github account.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>B電腦可以更新個website喇~ 之後記得backup d file番github.</p><h1 id="backup-to-github-after-edit"><a href="#backup-to-github-after-edit" class="headerlink" title="backup to github after edit."></a>backup to github after edit.</h1><p>Backup 3 step!</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;any remark you want&quot;</span><br><span class="line">git push origin [your branch name]</span><br></pre></td></tr></table></figure><p>A, B電腦都有website file同environment. A電腦要更新要點做呢?</p><p>Back to the original computer, how to update.</p><h1 id="Replace-your-local-document-with-github-backup"><a href="#Replace-your-local-document-with-github-backup" class="headerlink" title="Replace your local document with github backup."></a>Replace your local document with github backup.</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin</span><br><span class="line">git reset --hard origin&#x2F;[your branch name]</span><br></pre></td></tr></table></figure><p>After edit remember to backup your data to github!</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> log </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> web </tag>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Hexo][02] - The creation of this website</title>
+      <link href="2019/10/10/Log-hexo-2/"/>
+      <url>2019/10/10/Log-hexo-2/</url>
+      
+        <content type="html"><![CDATA[<p>This is the log of the creation of this website. You may read as a tutorial.</p><hr><p>After create and run the starting page, we need to add theme and post.</p><h1 id="Adding-a-themes-to-your-website"><a href="#Adding-a-themes-to-your-website" class="headerlink" title="Adding a themes to your website"></a>Adding a themes to your website</h1><p>The first thing is to find a theme that you wish to apply to your website.<br>You can find many themes on here <a href="https://hexo.io/themes/index.html">https://hexo.io/themes/index.html</a> .</p><p>After you find the theme, you click the theme name to get in the theme github page like this.<br><img src="https://i.imgur.com/y5CQAji.png" alt="this is the theme of this blog"><br><br><br><em>All code here will use this theme as example, if you are using a different theme, plz change the code to fit your theme.</em></p><h2 id="Clone-the-theme-to-your-local-file"><a href="#Clone-the-theme-to-your-local-file" class="headerlink" title="Clone the theme to your local file."></a>Clone the theme to your local file.</h2><p>Go back to VScode terminal, your web file directory and clone the theme by this code.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git:&#x2F;&#x2F;github.com&#x2F;Molunerfinn&#x2F;hexo-theme-melody.git themes&#x2F;melody</span><br></pre></td></tr></table></figure><h2 id="Change-your-web-theme"><a href="#Change-your-web-theme" class="headerlink" title="Change your web theme."></a>Change your web theme.</h2><p>Then go to file <code>[yourweb]\_config.yml</code> fine <code>theme:</code> at the last and change it to your theme.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: melody</span><br></pre></td></tr></table></figure><p>And preview in localhost by this 3 command.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure><p><em>And also <code>hexo d</code> to deploy, and back up 3 step :<code>git add .</code>, <code>git commit -m &quot;typesomething&quot;</code>, and <code>git push origin hexo</code>.</em></p><hr><p><br></br></p><h1 id="Adding-page-to-your-website"><a href="#Adding-page-to-your-website" class="headerlink" title="Adding page to your website."></a>Adding page to your website.</h1><p>Here is how to add some defult page of the theme. (If your theme has provided these pages.)</p><p>For the tags page:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;tags&quot;</span><br></pre></td></tr></table></figure><p>Then a new directory <code>tags</code> should be created and it have a file call <code>index.md</code>.<br>Open the <code>index.md</code> file, and add a <code>type</code> become like this.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> ---</span><br><span class="line">title: tags</span><br><span class="line">date: 2019-10-08 05:48:26</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure><p>categories page will be same procedure.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;categories&quot;</span><br></pre></td></tr></table></figure><p>Then a new directory <code>categories</code> should be created and it have a file call <code>index.md</code>.<br>Open the <code>index.md</code> file, and add a <code>type</code> become like this.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> ---</span><br><span class="line">title: categories</span><br><span class="line">date: 2019-10-08 05:48:26</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure><p>You can add more pages you want by the same step.</p><h2 id="Add-the-page-to-the-menu"><a href="#Add-the-page-to-the-menu" class="headerlink" title="Add the page to the menu."></a>Add the page to the menu.</h2><p>Go to the <code>_config.yml</code> <strong>under your theme directory. NOT your website file.</strong> <br><br><code>[youwebfile]\themes\melody\_config.yml</code> and add your page like this.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  Home: &#x2F;</span><br><span class="line">  Archives: &#x2F;archives</span><br><span class="line">  Tags: &#x2F;tags</span><br><span class="line">  Categories: &#x2F;categories</span><br><span class="line">  #XXX: &#x2F;xxx</span><br></pre></td></tr></table></figure><hr><p><br></br></p><h1 id="Adding-post-to-your-website"><a href="#Adding-post-to-your-website" class="headerlink" title="Adding post to your website."></a>Adding post to your website.</h1><p>Finally add some real content to the website. Here is how to add post.<br>Type the following code, and fill in the file name of you post.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [filename]</span><br></pre></td></tr></table></figure><p>And you can add some tags and categories to your post like this.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;[Hexo][01] - The creation of this website&quot;</span><br><span class="line">date: 2019-10-08 18:23:34</span><br><span class="line">tags: [tutorial,log,hexo,SSH,web]</span><br><span class="line">categories: </span><br><span class="line">- [porject-log]</span><br><span class="line">- [tutorial]</span><br><span class="line">- [hexo]</span><br><span class="line">---</span><br></pre></td></tr></table></figure><p>Another example:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;[Hexo][02] - The creation of this website&quot;</span><br><span class="line">date: 2019-10-10 03:49:51</span><br><span class="line">tags: [tutorial,log,hexo,web]</span><br><span class="line">categories: </span><br><span class="line">- [porject-log]</span><br><span class="line">- [tutorial]</span><br><span class="line">- [hexo]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> tutorial </category>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> log </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[Hexo][01] - The creation of this website</title>
+      <link href="2019/10/08/Log-hexo-1/"/>
+      <url>2019/10/08/Log-hexo-1/</url>
+      
+        <content type="html"><![CDATA[<p>This is the log of the creation of this website. You may read as a tutorial.</p><hr><h2 id="Before-start"><a href="#Before-start" class="headerlink" title="- Before start."></a>- Before start.</h2><p>You need to download the following software environment.</p><ul><li><a href="https://git-scm.com/" title="Git">Git</a> </li><li><a href="https://nodejs.org/en/" title="Node.js">Node.js</a></li><li><a href="https://code.visualstudio.com/" title="Visual Studio Code">Visual-Studio-Code</a></li></ul><h2 id="Install-the-environment"><a href="#Install-the-environment" class="headerlink" title="- Install the environment"></a>- Install the environment</h2><p>Create a directory that will contain your web file. For example <code>D:\myweb</code>. <br><br>Then open Visual-Studio-Code -&gt; Terminal -&gt; New Terminal and <code>cd</code> to your directory.</p><h3 id="Install-the-hexo-environment"><a href="#Install-the-hexo-environment" class="headerlink" title="Install the hexo environment."></a>Install the hexo environment.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo</span><br></pre></td></tr></table></figure><h3 id="Create-a-hexo-project"><a href="#Create-a-hexo-project" class="headerlink" title="Create a hexo project."></a>Create a hexo project.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init [your file name]</span><br><span class="line">---for example$ hexo init XXXXX.github.io</span><br></pre></td></tr></table></figure><p><code>cd</code> to your project file. For example <code>D&quot;\myweb\XXXXX.github.io</code> to do the following step. <br></p><h3 id="Install-the-Node-js-package-manager"><a href="#Install-the-Node-js-package-manager" class="headerlink" title="Install the Node.js package manager."></a>Install the Node.js package manager.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure><p>After all, your environment is ready. Type the following code to confirm.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">---INFO  Hexo is running at http:&#x2F;&#x2F;localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure><p>ctrl + left click to open the link, you will see the initial page of your website.</p><h2 id="deploy-your-website-to-github-publish-to-the-network"><a href="#deploy-your-website-to-github-publish-to-the-network" class="headerlink" title="- deploy your website to github, publish to the network."></a>- deploy your website to github, publish to the network.</h2><p>Open a repositories on github and name it as <code>[your-account-name].github.io</code>.</p><h3 id="Generate-and-or-adding-your-SSH-key-to-github-account"><a href="#Generate-and-or-adding-your-SSH-key-to-github-account" class="headerlink" title="Generate and/or adding your SSH key to github account."></a>Generate and/or adding your SSH key to github account.</h3><p>Open Git Bash, and type the following code with your github email account.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure><p>Then you will get.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; Generating public&#x2F;private rsa key pair.</span><br><span class="line">&gt; Enter a file in which to save the key (&#x2F;c&#x2F;Users&#x2F;you&#x2F;.ssh&#x2F;id_rsa):[Press enter]</span><br><span class="line">&gt; Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line">&gt; Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure><p>Add you SSH key to your github account as following <a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account">https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account</a> .</p><p>finish the github works, we back to our local project continue the setup.</p><h3 id="Install-the-deployer-in-your-project-file"><a href="#Install-the-deployer-in-your-project-file" class="headerlink" title="Install the deployer in your project file."></a>Install the deployer in your project file.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure><p>Check the <code>_config.yml</code>  under your project file. This file contain all the config of your website including the title, url…etc. <br><br>At last of the file, you will see <code>deploy:</code> , we need to change it as following.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:[githubaccount]&#x2F;[githubaccount].github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure><h3 id="deployer-and-publish-your-website"><a href="#deployer-and-publish-your-website" class="headerlink" title="deployer and publish your website."></a>deployer and publish your website.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br><span class="line"></span><br><span class="line">&gt;type the [passphrase] of your SSH keys. </span><br></pre></td></tr></table></figure><p>you will see the website on <code>[githubaccount].github.io</code>.</p><hr><p><br></br></p><hr><h2 id="Backup-your-blog-to-github"><a href="#Backup-your-blog-to-github" class="headerlink" title="Backup your blog to github"></a>Backup your blog to github</h2><p>still using visual studio code terminal at the project file.</p><h3 id="connect-your-git-to-github-repository"><a href="#connect-your-git-to-github-repository" class="headerlink" title="connect your git to github repository."></a>connect your git to github repository.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:[youraccount]&#x2F;[youraccount].github.io</span><br></pre></td></tr></table></figure><h3 id="add-a-new-branch"><a href="#add-a-new-branch" class="headerlink" title="add a new branch."></a>add a new branch.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b [yourbranch name]</span><br><span class="line"></span><br><span class="line">------For example: git checkout -b hexo</span><br></pre></td></tr></table></figure><p>Then you are Switched to a new branch “hexo”.</p><h3 id="Backup-3-step"><a href="#Backup-3-step" class="headerlink" title="Backup 3 step!"></a>Backup 3 step!</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;any remark you want&quot;</span><br><span class="line">git push origin [your branch name]</span><br></pre></td></tr></table></figure><hr><p><br></br></p><hr><p>Basically you are done all the jobs. The next step is to add some content and maintain the themes.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> porject-log </category>
+          
+          <category> tutorial </category>
+          
+          <category> hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tutorial </tag>
+            
+            <tag> log </tag>
+            
+            <tag> hexo </tag>
+            
+            <tag> SSH </tag>
+            
+            <tag> web </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[initial issue] 創刊號</title>
+      <link href="2019/10/08/fuck/"/>
+      <url>2019/10/08/fuck/</url>
+      
+        <content type="html"><![CDATA[<h2 id="終於搞掂晒-迎來創blog號"><a href="#終於搞掂晒-迎來創blog號" class="headerlink" title="終於搞掂晒 迎來創blog號"></a>終於搞掂晒 迎來創blog號</h2><p>其實開blog呢個諗法已經有咗好耐, 自從yahoo blog結束服務之後一直想開番個blog.<br>做log又好, 做note又好, 起碼寫低當時當刻想記低既野.<br>由中學開始接觸過既唔同project, 基本上一唔繼續, 離手一段時間就開始失晒憶, 想pick up番都唔係咁容易.<br>又要搵番一大堆資料睇, 再加上自己殘缺既記憶, 感覺仲難過由頭重新學.</p><p>之所以一直都開番個blog, 最主要原因都係太忙, 忙住打機,聽歌,睇動畫,睇小說,仲要讀書.<br>成個U life其實都好充實, 開blog呢個諗法自然就冇時間去完成.<br>year 4 玩robocon之後開坑愈黎愈多,學既野愈黎愈多,個腦又開始頂唔順,想係番工之前整理一下所有做過既野.<br>唔係既話呢幾年做過既project又會唔記得晒, 咁點同人講自己做過呢….</p><p>所以呢個blog就迎來創刊號喇, 呢個blog既出生都經歷一波三折,唔係咁順利.<br>小弟一直對web方面既野唔係咁熟, 呢個都係一直冇開blog既原因之一.<br>又咁啱比我識到個讀imt熟web 既—–師弟? 總之就識到人,有人教,自然可以開始番呢個計畫.</p><p>呢個blog就係用一個叫hexo既…platform? 整既,其實如果由始至終用同一部電腦搞就冇咁麻煩.<br>但係我又想雙開用屋企機同lab機同時做manage, 咁搞既野就多咗好多, 學hexo同時學git.<br>其實到最後都係搞唔掂,個themes push唔到上自己個github 搞到個config syn唔到.<br>不過算喇, 搞咗2,3日都搞唔掂, 遲下睇下有冇機會再睇下點先syn埋個themes上gitub.</p><p>個themes都諗咗好耐架…由chan 到cyanstyle 最後先決定用呢個melody.<br>嘔心瀝血之後修成正果 希望呢個blog可以keep住唔懶更新la.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> log </tag>
+            
+            <tag> talk </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

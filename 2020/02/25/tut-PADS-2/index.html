@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="[PADS][02] - Draw New Parts landing pattern"><meta name="keywords" content="tutorial,log,PCB,environment"><meta name="author" content="williamlun"><meta name="copyright" content="williamlun"><title>[PADS][02] - Draw New Parts landing pattern | williamlun's Blog</title><link rel="shortcut icon" href="/william-logo.ico"><link rel="stylesheet" href="/css/index.css?version=1.8.2"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.8.2"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '5.1.1'
+} </script><meta name="generator" content="Hexo 5.1.1"></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Use-PADS-layout-to-check-the-library"><span class="toc-number">1.</span> <span class="toc-text">Use PADS layout to check the library</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Check-the-exist-Decals"><span class="toc-number">2.</span> <span class="toc-text">Check the exist Decals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-new-Decals"><span class="toc-number">3.</span> <span class="toc-text">Create new Decals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Change-to-grid-and-unit-to-fit-your-reference"><span class="toc-number">4.</span> <span class="toc-text">Change to grid and unit to fit your reference</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Start-to-draw-something"><span class="toc-number">5.</span> <span class="toc-text">Start to draw something</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#change-the-2D-Line-drawing-object"><span class="toc-number">6.</span> <span class="toc-text">change the 2D Line drawing object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Add-Terminal"><span class="toc-number">7.</span> <span class="toc-text">Add Terminal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Change-the-Pad-Stacks"><span class="toc-number">8.</span> <span class="toc-text">Change the Pad Stacks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#place-all-thing-on-the-corrct-position"><span class="toc-number">9.</span> <span class="toc-text">place all thing on the corrct position</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#place-the-Name-and-Type"><span class="toc-number">10.</span> <span class="toc-text">place the Name and Type</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Finish-and-Saving"><span class="toc-number">11.</span> <span class="toc-text">Finish and Saving</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Combine-the-Decal-to-the-Part"><span class="toc-number">12.</span> <span class="toc-text">Combine the Decal to the Part</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://i.imgur.com/vPIWUHH.jpg"></div><div class="author-info__name text-center">williamlun</div><div class="author-info__description text-center">just for fun</div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">16</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">21</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">9</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://i.imgur.com/t0vIvjE.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">williamlun's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/Comics">Comics</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">[PADS][02] - Draw New Parts landing pattern</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2020-02-25</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/porject-log/">porject-log</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/tutorial/">tutorial</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/PCB/">PCB</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/PADS/">PADS</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>This is a tutorial of using PADS software to build your own PCB.</p>
+<hr>
+<p>At the last tutorial, we have finish the logic symbol of the new part.<br>Now we can draw the landing pattern, which is the package of your part.</p>
+<h2 id="Use-PADS-layout-to-check-the-library"><a href="#Use-PADS-layout-to-check-the-library" class="headerlink" title="Use PADS layout to check the library"></a>Use PADS layout to check the library</h2><p>Open <code>PADS layout</code> Library Manager, you can see your part and shown as <code>NO DECAL</code>.</p>
+<p><img src="https://i.imgur.com/x083SZu.png"></p>
+<h2 id="Check-the-exist-Decals"><a href="#Check-the-exist-Decals" class="headerlink" title="Check the exist Decals"></a>Check the exist Decals</h2><p>You can check the existing library decals, to find that you need to draw it or not.<br>You can type the keyword on the filter text box like this to search.<br>Remember to change the selected library on top.</p>
+<p><img src="https://i.imgur.com/JuSmc8B.png"></p>
+<h2 id="Create-new-Decals"><a href="#Create-new-Decals" class="headerlink" title="Create new Decals"></a>Create new Decals</h2><p>When you confirm you need to draw a new decal.<br>Switch the <code>Filter</code> to <code>Decals</code>, and click <code>New...</code>.</p>
+<p><img src="https://i.imgur.com/x083SZu.png"></p>
+<h2 id="Change-to-grid-and-unit-to-fit-your-reference"><a href="#Change-to-grid-and-unit-to-fit-your-reference" class="headerlink" title="Change to grid and unit to fit your reference"></a>Change to grid and unit to fit your reference</h2><p>This component is using a SOP-8 package, the land pattern is here and the unit is mm.<br>So, I will change the software setting to fit my reference to draw it easier.<br>Here is the reference land pattern.</p>
+<p><img src="https://i.imgur.com/Aeoouzw.png"></p>
+<p>We switch the <code>Design units</code> to <code>Metric</code>.</p>
+<p><img src="https://i.imgur.com/lSIQFAV.png"></p>
+<p>And also the <code>Design Grid</code> and <code>Display Grid</code> as you like.</p>
+<p><img src="https://i.imgur.com/7BigA0R.png"></p>
+<h2 id="Start-to-draw-something"><a href="#Start-to-draw-something" class="headerlink" title="Start to draw something"></a>Start to draw something</h2><p>You can add some line using the <code>Drafting Toolbar</code> -&gt; <code>2D Line</code>.</p>
+<p><img src="https://i.imgur.com/uZ3nFqk.png"></p>
+<p>You can first draw a probably size and you can see you mouse posistion from the origin at the right bottom.</p>
+<p><img src="https://i.imgur.com/wvbUP2y.png"></p>
+<h2 id="change-the-2D-Line-drawing-object"><a href="#change-the-2D-Line-drawing-object" class="headerlink" title="change the 2D Line drawing object"></a>change the 2D Line drawing object</h2><p>When you using the <code>2D Line</code>, you can right click and change the drawing to a circle or just a path.</p>
+<p><img src="https://i.imgur.com/HmYwEwf.png"></p>
+<p>Here I get something like this.</p>
+<p><img src="https://i.imgur.com/YJHS9dl.png"></p>
+<h2 id="Add-Terminal"><a href="#Add-Terminal" class="headerlink" title="Add Terminal"></a>Add Terminal</h2><p>Use the <code>Terminal</code> to add pin.</p>
+<p><img src="https://i.imgur.com/l3x1VD4.png"></p>
+<p>The pin will add in orderly, or you can change the setting here.</p>
+<p><img src="https://i.imgur.com/afa2ygS.png"></p>
+<p>The part have 8 pin, so I just add 8 Terminal first.</p>
+<p><img src="https://i.imgur.com/9Zdh9ez.png"></p>
+<h2 id="Change-the-Pad-Stacks"><a href="#Change-the-Pad-Stacks" class="headerlink" title="Change the Pad Stacks"></a>Change the Pad Stacks</h2><p>We can select all of the Terminal and right-click, choose the <code>Pad Stacks...</code> to change the pin shape.</p>
+<p><img src="https://i.imgur.com/aL0DnKb.png"></p>
+<p>Here is the pin pad stack properties.</p>
+<ol>
+<li>The selected pin and the corresponding pin No..</li>
+<li>The selected layer of this pin.</li>
+<li>The pad parameter of selected layer of this pin.</li>
+<li>The size of the drilling hole.</li>
+<li>If you want the assign the change to all pin, just select it.</li>
+</ol>
+<p><img src="https://i.imgur.com/UDutsLZ.png"></p>
+<p>Because our component is a SMD component,<br>We don’t need to drill hole, <code>Drill size</code> set to 0.<br>The <code>Inner Layer</code> and the <code>Opposite Side</code> pad also set to 0.</p>
+<p><img src="https://i.imgur.com/llNee9V.png"></p>
+<p>Also change the parameter of the pad on the <code>Mounted Side</code>.</p>
+<p><img src="https://i.imgur.com/O3EELE9.png"></p>
+<h2 id="place-all-thing-on-the-corrct-position"><a href="#place-all-thing-on-the-corrct-position" class="headerlink" title="place all thing on the corrct position"></a>place all thing on the corrct position</h2><p>We can select the pin and right-click, select <code>Properties..</code>.</p>
+<p><img src="https://i.imgur.com/dhaZKq8.png"></p>
+<p>It will show the X Y position of this pin. </p>
+<p><img src="https://i.imgur.com/fMZEoPW.png"></p>
+<p>You can calculate the relative position of the pin and place it in the correct place.<br>Also, you can adjust your 2D line draft to get a better look.</p>
+<p><img src="https://i.imgur.com/aZXEY7c.png"></p>
+<p>Here is what I get.</p>
+<p><img src="https://i.imgur.com/kQ21SeG.png"></p>
+<h2 id="place-the-Name-and-Type"><a href="#place-the-Name-and-Type" class="headerlink" title="place the Name and Type"></a>place the Name and Type</h2><p>After place all the pin, I will change the size of the Name and Type and also place it on a better psition.</p>
+<p>Also right-click -&gt; <code>Properties..</code></p>
+<p><img src="https://i.imgur.com/rsLqTil.png"></p>
+<h2 id="Finish-and-Saving"><a href="#Finish-and-Saving" class="headerlink" title="Finish and Saving"></a>Finish and Saving</h2><p>final look.</p>
+<p><img src="https://i.imgur.com/g53uPxl.png"></p>
+<p>Saving.</p>
+<p><img src="https://i.imgur.com/ebeiq01.png"></p>
+<p>Naming</p>
+<p><img src="https://i.imgur.com/ADnS3SD.png"></p>
+<p>Click <code>NO!</code> when it ask you to create a new Part Type.</p>
+<p><img src="https://i.imgur.com/gqH5MAQ.png"></p>
+<p>Then we can exit the editor.</p>
+<p><img src="https://i.imgur.com/DsMftQv.png"></p>
+<h2 id="Combine-the-Decal-to-the-Part"><a href="#Combine-the-Decal-to-the-Part" class="headerlink" title="Combine the Decal to the Part"></a>Combine the Decal to the Part</h2><p>Open the Library Manager, we can see the part still show <code>NO DECAL</code>, we click <code>edit..</code>.</p>
+<p><img src="https://i.imgur.com/I0nWByc.png"></p>
+<p>And go to the <code>PCB Decals</code>.</p>
+<p><img src="https://i.imgur.com/UHUrCmY.png"></p>
+<p>Find the Decal we have created, you can  see the preview on top.</p>
+<p><img src="https://i.imgur.com/jjMMro4.png"></p>
+<p>Click <code>Assign</code>, then <code>OK</code>.</p>
+<p><img src="https://i.imgur.com/ZNxE88J.png"></p>
+<p>Now we can see the part show our decal. We success to assign the decal to this part.</p>
+<p><img src="https://i.imgur.com/eH4xugP.png"></p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">williamlun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="/williamlun.github.io/2020/02/25/tut-PADS-2/">williamlun.github.io/2020/02/25/tut-PADS-2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/tutorial/">tutorial</a><a class="post-meta__tags" href="/tags/log/">log</a><a class="post-meta__tags" href="/tags/PCB/">PCB</a><a class="post-meta__tags" href="/tags/environment/">environment</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2020/02/28/log-keyboard-maker-1/"><i class="fa fa-chevron-left">  </i><span>[keyboard][00] - 記錄個自製鍵盤的計劃</span></a></div><div class="next-post pull-right"><a href="/2020/02/23/tut-PADS-1/"><span>[PADS][01] - Draw New Parts logic symbol</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://i.imgur.com/t0vIvjE.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2013 - 2020 By williamlun</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.8.2"></script><script src="/js/fancybox.js?version=1.8.2"></script><script src="/js/sidebar.js?version=1.8.2"></script><script src="/js/copy.js?version=1.8.2"></script><script src="/js/fireworks.js?version=1.8.2"></script><script src="/js/transition.js?version=1.8.2"></script><script src="/js/scroll.js?version=1.8.2"></script><script src="/js/head.js?version=1.8.2"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
