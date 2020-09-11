@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: ''
+title: williamlun's Blog
+subtitle: 中文...?english...?港式blog why not both! 
+description: just for fun
 keywords:
-author: John Doe
+author: williamlun
 language: en
 timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
-url: http://example.com
+url: williamlun.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -32,7 +32,7 @@ i18n_dir: :lang
 skip_render:
 
 # Writing
-new_post_name: :title.md # File name of new posts
+new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
 external_link:
@@ -98,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: melody
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -106,3 +106,14 @@ deploy:
   type: git
   repo: git@github.com:williamlun/williamlun.github.io.git
   branch: master
+
+search:
+  path: search.xml
+  field: post
+  content: true
+
+
+encrypt:
+  enable: true
+  abstract: encrypted article
+  message: find it. The password is there.
